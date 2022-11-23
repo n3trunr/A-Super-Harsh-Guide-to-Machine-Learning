@@ -1,0 +1,53 @@
+
+ABSTRACT 
+
+in this paper 
+learning = phenomenon of knowledge axquisition in the absence of explicit programming.
+
+paper provides precise methodology for studying this phenomenon from a computational viewpoint.
+
+methodology --> appropriate information gathering mechanism, the learning protocol, exploring the class
+of concepts that can be learned using it in a reasonable number of steps.
+
+show u da cool stuff algorithmic complexity can learn even if it seems like it cant learn a lot. 
+
+1. Introduction
+
+computability theory --> became possible ONCE precise models were made for modeling the commonplace
+phenomenon of mechanical calculation.
+this evolved to explain the 1. human experience and 2. suggest how artificial computing devices
+should be built
+
+'learnability theory' --> learning merits simmilar attention like computing does.
+1. discover good models that promise to be relevant to both explaining human experience and building devices 
+that can learn. (and for funs sake)
+2. The models should also shed light on the limits of what can be learned
+
+ASSUMPTION: IN THIS PAPER WE SHALL SAY THAT A PROGRAM FOR PERFORMING
+A TASK HAS BEEN ACQUIRED BY LEARNING IF IT HAS BEEN ACQUIRED BY ANY MEANS OTHER THAN 
+EXPLICIT PROGRAMMING.
+
+
+This paper is concerned with precise computational models of the learning phenomenon. We shall restrict ourselves to skills
+that consist of recognizing whether a concept is true or not for given data.
+::: WE shall say a concept Q has been learned if a program for recognizing it has been 
+::: deduced (by some method other than the acquisition from the outside of the explicit programming)
+
+MAIN CONTRIBUTION OF THIS PAPER:
+Shows that it is possible to design learning machines that have all three of the follow properties:
+1. The machines can probably learn whole classes of concepts. (these classes can be characterized)
+2. The classes of concepts are appropriate and nontribial for general-purpose knowledge
+3. The computational process by which the machines deduce the desired programs requires a feasible number of steps
+
+
+Learning machines consists of 
+1. learning protocol --> specifies the manner in which information is obtained from the outside
+2. deduction procedure --> mechanism by which a correct recognition algorithm for the concept to be learned is deduced.
+
+At the BROADEST level the suggested methodology for studying learning:
+1. Define a plausible learning protocol
+2. Invesigate the class of concepts for which recognition programs can be deduced in polynomial time using the protocol
+
+=============================
+page 2 of PDF first paragraph (Resume point)
+=============================
