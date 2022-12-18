@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://127.0.0.1:12156/library/base/html/matrix.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>R: Matrices</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<link href="./R_ Matrices_files/prism.css" rel="stylesheet">
+<link rel="stylesheet" href="./R_ Matrices_files/katex.css">
+<script type="text/javascript" src="./R_ Matrices_files/katex-config.js.download"></script>
+<script defer="" src="./R_ Matrices_files/katex.js.download" onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="./R_ Matrices_files/R.css">
+<style type="text/css" id="tts-styles">[data-tts-block-id].tts-active {background: rgba(206, 225, 255, 0.9) !important;} [data-tts-sentence-id].tts-active {background: rgba(0, 89, 191, 0.7) !important;}</style></head><body><div class="container">
+
+<table style="width: 100%;"><tbody><tr><td>matrix {base}</td><td style="text-align: right;">R Documentation</td></tr></tbody></table>
+
+<h2>Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>matrix</code> creates a matrix from the given set of values.
+</p>
+<p><code>as.matrix</code> attempts to turn its argument into a matrix.
+</p>
+<p><code>is.matrix</code> tests if its argument is a (strict) matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<div class="code-toolbar"><pre class="language-r" tabindex="0"><code class="language-r">matrix<span class="token punctuation">(</span>data <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> ncol <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> byrow <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>
+       dimnames <span class="token operator">=</span> <span class="token keyword">NULL</span><span class="token punctuation">)</span>
+
+as.matrix<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'data.frame'</span>
+as.matrix<span class="token punctuation">(</span>x<span class="token punctuation">,</span> rownames.force <span class="token operator">=</span> <span class="token keyword">NA</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+
+is.matrix<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre><div class="toolbar"></div></div>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tbody><tr style="vertical-align: top;"><td><code>data</code></td>
+<td>
+<p>an optional data vector (including a list or
+<code><a href="http://127.0.0.1:12156/library/base/help/expression">expression</a></code> vector).  Non-atomic classed <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects are
+coerced by <code><a href="http://127.0.0.1:12156/library/base/help/as.vector">as.vector</a></code> and all attributes discarded.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>nrow</code></td>
+<td>
+<p>the desired number of rows.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>ncol</code></td>
+<td>
+<p>the desired number of columns.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>byrow</code></td>
+<td>
+<p>logical. If <code>FALSE</code> (the default) the matrix is
+filled by columns, otherwise the matrix is filled by rows.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>dimnames</code></td>
+<td>
+<p>A <code><a href="http://127.0.0.1:12156/library/base/help/dimnames">dimnames</a></code> attribute for the matrix:
+<code>NULL</code> or a <code>list</code> of length 2 giving the row and column
+names respectively.  An empty list is treated as <code>NULL</code>, and a
+list of length one as row names.  The list can be named, and the
+list names will be used as names for the dimensions.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>x</code></td>
+<td>
+<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>...</code></td>
+<td>
+<p>additional arguments to be passed to or from methods.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>rownames.force</code></td>
+<td>
+<p>logical indicating if the resulting matrix
+should have character (rather than <code>NULL</code>)
+<code><a href="http://127.0.0.1:12156/library/base/help/rownames">rownames</a></code>.  The default, <code>NA</code>, uses <code>NULL</code>
+rownames if the data frame has ‘automatic’ row.names or for a
+zero-row data frame.</p>
+</td></tr>
+</tbody></table>
+
+
+<h3>Details</h3>
+
+<p>If one of <code>nrow</code> or <code>ncol</code> is not given, an attempt is
+made to infer it from the length of <code>data</code> and the other
+parameter.  If neither is given, a one-column matrix is returned.
+</p>
+<p>If there are too few elements in <code>data</code> to fill the matrix,
+then the elements in <code>data</code> are recycled.  If <code>data</code> has
+length zero, <code>NA</code> of an appropriate type is used for atomic
+vectors (<code>0</code> for raw vectors) and <code>NULL</code> for lists.
+</p>
+<p><code>is.matrix</code> returns <code>TRUE</code> if <code>x</code> is a vector and has a
+<code>"<a href="http://127.0.0.1:12156/library/base/help/dim">dim</a>"</code> attribute of length 2 and <code>FALSE</code> otherwise.
+Note that a <code><a href="http://127.0.0.1:12156/library/base/help/data.frame">data.frame</a></code> is <strong>not</strong> a matrix by this
+test.  The function is generic: you can write methods to handle
+specific classes of objects, see <a href="http://127.0.0.1:12156/library/base/help/InternalMethods">InternalMethods</a>.
+</p>
+<p><code>as.matrix</code> is a generic function.  The method for data frames
+will return a character matrix if there is only atomic columns and any
+non-(numeric/logical/complex) column, applying <code><a href="http://127.0.0.1:12156/library/base/help/as.vector">as.vector</a></code>
+to factors and <code><a href="http://127.0.0.1:12156/library/base/help/format">format</a></code> to other non-character columns.
+Otherwise, the usual coercion hierarchy (logical &lt; integer &lt; double &lt;
+complex) will be used, e.g., all-logical data frames will be coerced
+to a logical matrix, mixed logical-integer will give a integer matrix,
+etc.
+</p>
+<p>The default method for <code>as.matrix</code> calls <code>as.vector(x)</code>, and
+hence e.g. coerces factors to character vectors.
+</p>
+<p>When coercing a vector, it produces a one-column matrix, and
+promotes the names (if any) of the vector to the rownames of the matrix.
+</p>
+<p><code>is.matrix</code> is a <a href="http://127.0.0.1:12156/library/base/help/primitive">primitive</a> function.
+</p>
+<p>The <code>print</code> method for a matrix gives a rectangular layout with
+dimnames or indices.  For a list matrix, the entries of length not
+one are printed in  the form ‘<span class="samp">⁠integer,7⁠</span>’ indicating the type
+and length.
+</p>
+
+
+<h3>Note</h3>
+
+<p>If you just want to convert a vector to a matrix, something like
+</p>
+<pre>  dim(x) &lt;- c(nx, ny)
+  dimnames(x) &lt;- list(row_names, col_names)
+</pre>
+<p>will avoid duplicating <code>x</code> <em>and</em> preserve
+<code><a href="http://127.0.0.1:12156/library/base/help/class">class</a>(x)</code> which may be useful, e.g.,
+for <code><a href="http://127.0.0.1:12156/library/base/help/Date">Date</a></code> objects.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="http://127.0.0.1:12156/library/base/help/data.matrix">data.matrix</a></code>, which attempts to convert to a numeric
+matrix.
+</p>
+<p>A matrix is the special case of a two-dimensional <code><a href="http://127.0.0.1:12156/library/base/help/array">array</a></code>.
+Since <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0, <code><a href="http://127.0.0.1:12156/library/base/help/inherits">inherits</a>(m, "array")</code> is true for a
+<code>matrix</code> <code>m</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<p><a href="http://127.0.0.1:12156/library/base/Example/matrix">Run examples</a></p><div class="code-toolbar"><pre class="language-r" tabindex="0"><code class="language-r">is.matrix<span class="token punctuation">(</span>as.matrix<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">!</span>is.matrix<span class="token punctuation">(</span>warpbreaks<span class="token punctuation">)</span>  <span class="token comment"># data.frame, NOT matrix!</span>
+warpbreaks<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">]</span>
+as.matrix<span class="token punctuation">(</span>warpbreaks<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># using as.matrix.data.frame(.) method</span>
+
+<span class="token comment">## Example of setting row and column names</span>
+mdat <span class="token operator">&lt;-</span> matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nrow <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> ncol <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> byrow <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>
+               dimnames <span class="token operator">=</span> list<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"row1"</span><span class="token punctuation">,</span> <span class="token string">"row2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                               c<span class="token punctuation">(</span><span class="token string">"C.1"</span><span class="token punctuation">,</span> <span class="token string">"C.2"</span><span class="token punctuation">,</span> <span class="token string">"C.3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mdat
+</code></pre><div class="toolbar"></div></div>
+
+<hr><div style="text-align: center;">[Package <em>base</em> version 4.2.2 <a href="http://127.0.0.1:12156/library/base/html/00Index.html">Index</a>]</div>
+</div>
+<script src="./R_ Matrices_files/prism.js.download"></script>
+</body></html>
